@@ -16,7 +16,7 @@
 (setq use-package-always-defer t)
 
 ;; Ensure packages are installed implicitly
-(setq use-package-always-ensure t)
+;(setq use-package-always-ensure t) ; this thing lowkey doesnt work
 
 
 
@@ -30,7 +30,8 @@
 (load custom-file 'nomessage 'noerror)
 
 ;; Structure and interpretation of computer programs
-(use-package sicp)
+(use-package sicp
+  :ensure t)
 
 
 
@@ -55,6 +56,7 @@
 
 ;; Theme
 (use-package nord-theme
+  :ensure t
   :defer nil
   :config
   (load-theme 'nord t))
@@ -69,6 +71,7 @@
 
 ;; Icons
 (use-package all-the-icons
+  :ensure nil
   :if (display-graphic-p))
 
 
@@ -146,6 +149,7 @@
 
 ;; Recentf
 (use-package recentf
+  :ensure t
   :bind ("C-c C-r" . recentf-open-files)
   :custom
   (recentf-max-saved-itmes 25)
@@ -166,6 +170,7 @@
 
 ;; whick-key package (remember this is turning built-in from next emacs version...)
 (use-package which-key
+  :ensure t
   :defer nil
   :config
   (which-key-mode)
