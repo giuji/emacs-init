@@ -42,7 +42,7 @@
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
-(setq visible-bell nil)
+(setq visible-bell 'ignore)
 (setq make-pointer-invisible t)
 
 ;; Disable toolkit dialogs
