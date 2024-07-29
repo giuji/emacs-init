@@ -122,6 +122,9 @@
 ;  (display-line-numbers-type 'relative)
   :hook prog-mode)
 
+;; Racket mode
+(use-package racket-mode
+  :ensure t)
 
 
 ;; [Org-text]
