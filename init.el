@@ -88,12 +88,18 @@
 (use-package hl-line
   :hook (prog-mode text-mode))
 
+;;Window management
+(setq switch-to-buffer-obey-display-action t)
+
 ;; Config help mode
 (use-package help
   :custom
   (help-window-keep-selected t)
   (help-window-select t)
   (help-clean-buttons t))
+(add-to-list 'display-buffer-alist
+	     '("\\*Help\\*"
+	       (display-buffer-reuse-window display-buffer-pop-up-window)))
 
 ;; Follow focus
 (setq focus-follows-mouse t)
@@ -125,6 +131,10 @@
 ;; Racket mode
 (use-package racket-mode
   :ensure t)
+(add-to-list 'display-buffer-alist
+	     '("\\*Racket REPL </>\\*"
+	       (display-buffer-reuse-window display-buffer-below-selected)))
+
 
 
 ;; [Org-text]
@@ -162,7 +172,7 @@
 ;; Dired thumbnails
 (use-package image-dired
   :bind (:map dired-mode-map ; This doesnt work but i dont wanna bind globally
-	 ("C-c C-t" . image-dired)))
+	 ("C-c C-t" . image-dired-show-all-from-dir)))
 
 
 
