@@ -132,8 +132,17 @@
 (use-package racket-mode
   :ensure t)
 (add-to-list 'display-buffer-alist
-	     '("\\*Racket REPL </>\\*"
-	       (display-buffer-reuse-window display-buffer-below-selected)))
+	     '("\\*Racket REPL </>\\*" display-buffer-in-direction
+	       (direction . bottom)
+	       (window . root)
+	       (window-height . 0.25)))
+
+;; display eshell on the bottom
+(add-to-list 'display-buffer-alist
+	     '("\\*e?shell\\*" display-buffer-in-direction
+	       (direction . bottom)
+	       (window . root)
+	       (window-height . 0.25)))
 
 
 
