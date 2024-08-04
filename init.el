@@ -74,7 +74,6 @@
   :ensure nil
   :if (display-graphic-p))
 
-
 ;; [Behaviour]
 
 ;; Good scrolling
@@ -97,6 +96,7 @@
   (help-window-keep-selected t)
   (help-window-select t)
   (help-clean-buttons t)
+  :config
   (add-to-list 'display-buffer-alist
 	       '("\\*Help\\*"
 		 (display-buffer-reuse-window display-buffer-pop-up-window))))
@@ -114,6 +114,18 @@
 ;; Remember minibuffer hisotry
 (setq history-lenght 16)
 (savehist-mode 1)
+
+;; avy-mode
+(use-package avy
+  :ensure t
+  :config
+  (add-to-list 'avy-styles-alist
+	       '(avy-goto-word-0 . pre))
+  :custom
+  (avy-all-windows nil)
+  :bind (("M-g e" . avy-goto-word-0)
+	 ("M-g w" . avy-goto-word-1)
+	 ("M-g f" . avy-goto-line)))
 
 
 
