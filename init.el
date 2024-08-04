@@ -72,6 +72,10 @@
 ;; Show active region
 (transient-mark-mode t)
 
+;; Enable auto-fill
+(setq fill-column 72)
+(add-hook 'text-mode-hook 'auto-fill-mode)
+
 
 
 ;;; [Packages Config]
@@ -154,10 +158,6 @@
 		 (direction . bottom)
 		 (window . root)
 		 (window-height . 0.25))))
-
-;; Enable auto-fill
-(setq fill-column 72)
-(add-hook 'text-mode-hook 'auto-fill-mode)
 
 ;; Autorevert
 (use-package autorevert
