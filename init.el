@@ -115,8 +115,7 @@
 ;; Enable eletric pair for parens pairing
 (use-package elec-pair
   :defer t
-  :hook (prog-mode . electric-pair-mode)
-        (text-mode . electric-pair-mode))
+  :hook ((prog-mode text-mode) electric-pair-mode))
 
 ;; avy-mode
 (use-package avy
