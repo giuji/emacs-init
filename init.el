@@ -1,8 +1,6 @@
 ;;; Emacs init file 18/07/2024 00:04 - Rome
 
-
-
-;; [Pakcage management config]
+;;; [Pakcage manager config]
 
 ;; Add package archives
 (require 'package)
@@ -10,17 +8,13 @@
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/"))
 (package-initialize)
 
-;; Set-up use-package
-
 ;; Force autoloading as default
 (setq use-package-always-defer t)
 
 ;; Ensure packages are installed implicitly
 ;(setq use-package-always-ensure t) ; this thing lowkey doesnt work
 
-
-
-;; [Misc]
+;;; [Misc]
 
 ;; Disbale lock files
 (setq create-lockfiles nil)
@@ -33,9 +27,16 @@
 (use-package sicp
   :ensure t)
 
+;; Bakcup files
+(make-directory (expand-file-name "tmp/backups" user-emacs-directory) t)
+(make-directory (expand-file-name "tmp/autosave" user-emacs-directory) t)
+(setq backup-directory-alist
+      `(("." . ,(expand-file-name "tmp/backups" user-emacs-directory))))
+(setq auto-save-file-name-transforms
+      `((".*" ,(expand-file-name "tmp/backups" user-emacs-directory) t)))
+(setq backup-by-copying t)
 
-
-;; [Pretty]
+;;; [Behaviour]
 
 ;; Remove useless UI
 (tab-bar-mode -1)
@@ -54,15 +55,37 @@
 ;; Disable implicit frame resizing
 (setq frame-inhibit-implied-resize t)
 
+;; Good scrolling
+(setq scroll-step 1)
+(setq scroll-margin 2)
+(setq scroll-conservately 15)
+(setq hscroll-setp 1)
+(setq hscroll-margin 2)
+
+;; Follow focus
+(setq focus-follows-mouse t)
+(setq mouse-autoselect-window-window t)
+
+;; Remember minibuffer hisotry
+(setq history-lenght 16)
+(savehist-mode 1)
+
+;;Window management
+(setq switch-to-buffer-obey-display-action t)
+
+;; Show active region
+(transient-mark-mode t)
+
+
+
+;;; [Packages Config]
+
 ;; Theme
 (use-package nord-theme
   :ensure t
   :defer nil
   :config
   (load-theme 'nord t))
-
-;; Show active region
-(transient-mark-mode t)
 
 ;; Show matching parens
 (use-package paren
@@ -74,21 +97,9 @@
   :ensure nil
   :if (display-graphic-p))
 
-;; [Behaviour]
-
-;; Good scrolling
-(setq scroll-step 1)
-(setq scroll-margin 2)
-(setq scroll-conservately 15)
-(setq hscroll-setp 1)
-(setq hscroll-margin 2)
-
 ;; Highlight cursor line
 (use-package hl-line
   :hook (prog-mode text-mode))
-
-;;Window management
-(setq switch-to-buffer-obey-display-action t)
 
 ;; Config help mode
 (use-package help
@@ -101,19 +112,11 @@
 	       '("\\*Help\\*"
 		 (display-buffer-reuse-window display-buffer-pop-up-window))))
 
-;; Follow focus
-(setq focus-follows-mouse t)
-(setq mouse-autoselect-window-window t)
-
 ;; Enable eletric pair for parens pairing
 (use-package elec-pair
   :defer t
   :hook (prog-mode . electric-pair-mode)
         (text-mode . electric-pair-mode))
-
-;; Remember minibuffer hisotry
-(setq history-lenght 16)
-(savehist-mode 1)
 
 ;; avy-mode
 (use-package avy
@@ -126,10 +129,6 @@
   :bind (("M-g e" . avy-goto-word-0)
 	 ("M-g w" . avy-goto-word-1)
 	 ("M-g f" . avy-goto-line)))
-
-
-
-;; [Code]
 
 ;; Display line numbers when writing code
 (use-package display-line-numbers
@@ -157,26 +156,9 @@
 		 (window . root)
 		 (window-height . 0.25))))
 
-
-
-;; [Org-text]
-
 ;; Enable auto-fill
 (setq fill-column 72)
 (add-hook 'text-mode-hook 'auto-fill-mode)
-
-
-
-;; [Files-dired]
-
-;; Bakcup files
-(make-directory (expand-file-name "tmp/backups" user-emacs-directory) t)
-(make-directory (expand-file-name "tmp/autosave" user-emacs-directory) t)
-(setq backup-directory-alist
-      `(("." . ,(expand-file-name "tmp/backups" user-emacs-directory))))
-(setq auto-save-file-name-transforms
-      `((".*" ,(expand-file-name "tmp/backups" user-emacs-directory) t)))
-(setq backup-by-copying t)
 
 ;; Autorevert
 (use-package autorevert
@@ -195,10 +177,6 @@
 (use-package image-dired
   :bind (:map dired-mode-map ; This doesnt work but i dont wanna bind globally
 	 ("C-c C-t" . image-dired-show-all-from-dir)))
-
-
-
-;; [Keybindings]
 
 ;; Use ibuffer instead of buffer menu
 (use-package ibuffer
