@@ -137,6 +137,7 @@
 
 ;; display eshell on the bottom
 (use-package eshell
+  :bind ("C-c z" . eshell)
   :config
   (add-to-list 'display-buffer-alist
 	       '("\\*e?shell\\*" display-buffer-in-direction
