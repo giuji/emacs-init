@@ -189,3 +189,10 @@
   :config
   (which-key-mode)
   (which-key-setup-side-window-bottom))
+
+(use-package mpc
+  :custom (mpc-browser-tags '(AlbumArtist Album))
+  :bind (:map mpc-tagbrowser-mode-map
+	 ("C-<return>" . mpc-play-at-point)
+	 :map mpc-songs-mode-map
+	 ("C-<return>" . mpc-play-at-point)))
