@@ -23,10 +23,6 @@
 (setq custom-file (expand-file-name "custom-vars.el" user-emacs-directory))
 (load custom-file 'nomessage 'noerror)
 
-;; Structure and interpretation of computer programs
-(use-package sicp
-  :ensure t)
-
 ;; Bakcup files
 (make-directory (expand-file-name "tmp/backups" user-emacs-directory) t)
 (make-directory (expand-file-name "tmp/autosave" user-emacs-directory) t)
@@ -67,7 +63,7 @@
 (setq mouse-autoselect-window-window t)
 
 ;; Remember minibuffer hisotry
-(setq history-lenght 16)
+(setq history-length 16)
 (savehist-mode 1)
 
 ;;Window management
@@ -79,6 +75,10 @@
 
 
 ;;; [Packages Config]
+
+;; Structure and interpretation of computer programs
+(use-package sicp
+  :ensure t)
 
 ;; Theme
 (use-package nord-theme
@@ -185,7 +185,7 @@
 ;; whick-key package (remember this is turning built-in from next emacs version...)
 (use-package which-key
   :ensure t
-  :defer nil
+  :defer nil ; i have to defer or the package doesnt work
   :config
   (which-key-mode)
   (which-key-setup-side-window-bottom))
