@@ -110,7 +110,6 @@
   :defer t
   :hook (prog-mode . electric-pair-mode)
         (text-mode . electric-pair-mode))
-; THIS DOESNT WORK IDK WHY :(
 
 ;; Remember minibuffer hisotry
 (setq history-lenght 16)
@@ -189,7 +188,8 @@
 ;; [Keybindings]
 
 ;; Use ibuffer instead of buffer menu
-(global-set-key (kbd "C-x C-b") 'ibuffer)
+(use-package ibuffer
+  :bind ("C-x C-b" . ibuffer))
 
 ;; whick-key package (remember this is turning built-in from next emacs version...)
 (use-package which-key
