@@ -121,8 +121,8 @@
 
 ;; Display line numbers when writing code
 (use-package display-line-numbers
-;  :custom
-;  (display-line-numbers-type 'relative)
+  :custom
+  (display-line-numbers-type 'relative)
   :hook prog-mode)
 
 ;; Racket mode
