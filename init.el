@@ -106,12 +106,10 @@
 (setq mouse-autoselect-window-window t)
 
 ;; Enable eletric pair for parens pairing
-(add-hook 'prog-mode-hook 'electric-pair-mode)
-(add-hook 'text-mode-hook 'electric-pair-mode)
-;(use-package elec-pair
-;  :defer t
-;  :hook (prog-mode . #'electric-pair-mode)
-;        (text-mode . #'electric-pair-mode))
+(use-package elec-pair
+  :defer t
+  :hook (prog-mode . electric-pair-mode)
+        (text-mode . electric-pair-mode))
 ; THIS DOESNT WORK IDK WHY :(
 
 ;; Remember minibuffer hisotry
@@ -140,6 +138,7 @@
 
 ;; display eshell on the bottom
 (use-package eshell
+  :config
   (add-to-list 'display-buffer-alist
 	       '("\\*e?shell\\*" display-buffer-in-direction
 		 (direction . bottom)
