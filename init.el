@@ -96,10 +96,10 @@
   :custom
   (help-window-keep-selected t)
   (help-window-select t)
-  (help-clean-buttons t))
-(add-to-list 'display-buffer-alist
-	     '("\\*Help\\*"
-	       (display-buffer-reuse-window display-buffer-pop-up-window)))
+  (help-clean-buttons t)
+  (add-to-list 'display-buffer-alist
+	       '("\\*Help\\*"
+		 (display-buffer-reuse-window display-buffer-pop-up-window))))
 
 ;; Follow focus
 (setq focus-follows-mouse t)
@@ -130,19 +130,21 @@
 
 ;; Racket mode
 (use-package racket-mode
-  :ensure t)
-(add-to-list 'display-buffer-alist
-	     '("\\*Racket REPL </>\\*" display-buffer-in-direction
-	       (direction . bottom)
-	       (window . root)
-	       (window-height . 0.25)))
+  :ensure t
+  :config
+  (add-to-list 'display-buffer-alist
+	       '("\\*Racket REPL </>\\*" display-buffer-in-direction
+		 (direction . bottom)
+		 (window . root)
+		 (window-height . 0.25))))
 
 ;; display eshell on the bottom
-(add-to-list 'display-buffer-alist
-	     '("\\*e?shell\\*" display-buffer-in-direction
-	       (direction . bottom)
-	       (window . root)
-	       (window-height . 0.25)))
+(use-package eshell
+  (add-to-list 'display-buffer-alist
+	       '("\\*e?shell\\*" display-buffer-in-direction
+		 (direction . bottom)
+		 (window . root)
+		 (window-height . 0.25))))
 
 
 
