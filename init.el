@@ -76,6 +76,9 @@
 (setq fill-column 72)
 (add-hook 'text-mode-hook 'auto-fill-mode)
 
+;; Font
+(set-face-attribute 'default nil :font "CaskaydiaCove Nerd Font-10")
+
 
 
 ;;; [Packages Config]
