@@ -173,10 +173,10 @@
   :config (recentf-mode 1))
 
 ;; Dired thumbnails
-(use-package image-dired
-  :bind (:map dired-mode-map ; This doesnt work but i dont wanna bind globally
-	 ("C-c C-t" . image-dired-show-all-from-dir)))
-
+;; (use-package image-dired
+;;   :bind (:map dired-mode-map ; This doesnt work but i dont wanna bind globally
+;; 	 ("C-c C-t" . image-dired-show-all-from-dir))
+  
 ;; Use ibuffer instead of buffer menu
 (use-package ibuffer
   :bind ("C-x C-b" . ibuffer))
