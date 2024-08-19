@@ -142,6 +142,13 @@
   (display-line-numbers-type 'relative)
   :hook prog-mode)
 
+;; Enable magit and disable built in version control helper
+(use-package magit
+  :ensure t
+  :custom (magit-define-global-key-bindings 'recommended))
+(use-package vc
+  :disabled)
+
 ;; Racket mode
 (use-package racket-mode
   :ensure t
