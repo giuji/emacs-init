@@ -152,6 +152,11 @@
 		 (window . root)
 		 (window-height . 0.25))))
 
+;; Enable nix-mode
+(use-package nix-mode
+  :ensure t
+  :mode "\\.nix\\'")
+
 ;; display eshell on the bottom
 (use-package eshell
   :bind ("C-c z" . eshell)
