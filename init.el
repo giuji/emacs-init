@@ -77,7 +77,7 @@
 (add-hook 'text-mode-hook 'auto-fill-mode)
 
 ;; Font
-(set-face-attribute 'default nil :font "CaskaydiaCove Nerd Font-10")
+(set-face-attribute 'default nil :font "Cascadia Code-10")
 
 
 
