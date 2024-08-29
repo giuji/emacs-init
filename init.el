@@ -154,9 +154,7 @@
   :ensure t
   :config
   (add-to-list 'display-buffer-alist
-	       '("\\*Racket REPL </>\\*" display-buffer-in-direction
-		 (direction . bottom)
-		 (window . root)
+	       '("\\*Racket REPL </>\\*" display-buffer-below-selected
 		 (window-height . 0.25))))
 
 ;; Enable nix-mode
