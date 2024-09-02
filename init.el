@@ -172,6 +172,14 @@
 		 (window . root)
 		 (window-height . 0.25))))
 
+(use-package info
+  :config
+  (add-to-list 'display-buffer-alist
+	       '("\\*info\\*" (display-buffer-in-side-window)
+		 (side . left)
+		 (slot . 0)
+		 (window-width . 92))))
+
 ;; Autorevert
 (use-package autorevert
   :custom (global-auto-revert-non-file-buffer t))
