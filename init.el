@@ -167,9 +167,9 @@
   :bind ("C-c z" . eshell)
   :config
   (add-to-list 'display-buffer-alist
-	       '("\\*e?shell\\*" display-buffer-in-direction
-		 (direction . bottom)
-		 (window . root)
+	       '("\\*e?shell\\*" display-buffer-in-side-window
+		 (side . bottom)
+		 (slot . 0)
 		 (window-height . 0.25))))
 
 (use-package info
