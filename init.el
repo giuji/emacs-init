@@ -200,6 +200,9 @@
 ;; (use-package image-dired
 ;;   :bind (:map dired-mode-map ; This doesnt work but i dont wanna bind globally
 ;; 	 ("C-c C-t" . image-dired-show-all-from-dir))
+
+(use-package dired
+  :bind ("C-c C-d" . dired))
   
 ;; Use ibuffer instead of buffer menu
 (use-package ibuffer
