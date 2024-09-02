@@ -99,6 +99,9 @@
   :custom (show-paren-delay 0)
   :config (show-paren-mode 1))
 
+(use-package window
+  :bind ("C-c t" . window-toggle-side-windows))
+
 ;; Icons
 (use-package all-the-icons
   :ensure nil
