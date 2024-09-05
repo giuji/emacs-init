@@ -209,7 +209,9 @@
   :bind ("C-x C-b" . ibuffer))
 
 (use-package doc-view
-  :custom (doc-view-resolution 200))
+  :custom (doc-view-resolution 200)
+  :bind (:map doc-view-mode-map
+	 ("c c" . doc-view-clear-cache)))
 
 ;; whick-key package (remember this is turning built-in from next emacs version...)
 (use-package which-key
