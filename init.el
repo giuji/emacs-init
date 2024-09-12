@@ -142,7 +142,7 @@
 ;; Display line numbers when writing code
 (use-package display-line-numbers
   :custom
-  (display-line-numbers-type 'relative)
+  (display-line-numbers-type t)
   :hook prog-mode)
 
 ;; Enable magit and disable built in version control helper
