@@ -148,7 +148,9 @@
 ;; Enable magit and disable built in version control helper
 (use-package magit
   :ensure t
-  :custom (magit-define-global-key-bindings 'recommended))
+  :custom (magit-define-global-key-bindings 'recommended)
+  ;; disable builtin vc package
+  (vc-handled-backends nil))
 (use-package vc
   :disabled)
 
