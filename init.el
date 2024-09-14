@@ -79,6 +79,10 @@
 ;; Font
 (set-face-attribute 'default nil :font "Cascadia Code-10")
 
+;; Custom mode-line
+(add-to-list 'load-path (file-name-concat user-emacs-directory "custom"))
+(require 'custom-mode-line)
+
 
 
 ;;; [Packages Config]
