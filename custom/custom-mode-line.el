@@ -51,7 +51,9 @@
     (let ((line-column-face 'bold))
       (format " L:%s C:%s "
 	      (propertize "%l" 'face line-column-face)
-	      (propertize "%c" 'face line-column-face)))))
+	      (propertize "%c" 'face (if (> (current-column) fill-column)
+					 'error
+				       line-column-face))))))
 
 (defun mode-line--file-location ()
   (when (and (mode-line-window-selected-p)
