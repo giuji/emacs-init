@@ -1,6 +1,12 @@
-;;; Emacs init file 18/07/2024 00:04 - Rome
+;; -*- eval: (outline-minor-mode); outline-regexp: ";;; \\*+"; -*-
+;; Emacs init file 18/07/2024 00:04 - Rome
+;; outline-minor-mode seems NOT to respect heading levels under
+;; emacs-lisp-mode (all headings are treated as the same level), this
+;; makes it lowkey useless stupid fucking emacs i hate you
 
-;;; [Pakcage manager config]
+;;; * Set non-package-specific Pakcage
+
+;;; Package manager config
 
 ;; Add package archives
 (require 'package)
@@ -11,10 +17,7 @@
 ;; Force autoloading as default
 (setq use-package-always-defer t)
 
-;; Ensure packages are installed implicitly
-;(setq use-package-always-ensure t) ; this thing lowkey doesnt work
-
-;;; [Misc]
+;;; Misc
 
 ;; Disbale lock files
 (setq create-lockfiles nil)
@@ -32,7 +35,7 @@
       `((".*" ,(expand-file-name "tmp/backups" user-emacs-directory) t)))
 (setq backup-by-copying t)
 
-;;; [Behaviour]
+;;; Behaviour
 
 ;; Remove useless UI
 (tab-bar-mode -1)
@@ -79,13 +82,7 @@
 ;; Font
 (set-face-attribute 'default nil :font "Cascadia Code-10")
 
-;; Custom mode-line
-(add-to-list 'load-path (file-name-concat user-emacs-directory "custom"))
-(require 'custom-mode-line)
-
-
-
-;;; [Packages Config]
+;;; * Packages Config
 
 ;; Structure and interpretation of computer programs
 (use-package sicp
@@ -95,8 +92,7 @@
 (use-package nord-theme
   :ensure t
   :defer nil
-  :config
-  (load-theme 'nord t))
+  :config (load-theme 'nord t))
 
 ;; Show matching parens
 (use-package paren
@@ -106,25 +102,18 @@
 (use-package window
   :bind ("C-c t" . window-toggle-side-windows))
 
-;; Icons
-(use-package all-the-icons
-  :ensure nil
-  :if (display-graphic-p))
-
 ;; Highlight cursor line
 (use-package hl-line
   :hook (prog-mode text-mode))
 
 ;; Config help mode
 (use-package help
-  :custom
-  (help-window-keep-selected t)
+  :custom (help-window-keep-selected t)
   (help-window-select t)
   (help-clean-buttons t)
-  :config
-  (add-to-list 'display-buffer-alist
-	       '("\\*Help\\*"
-		 (display-buffer-reuse-window display-buffer-pop-up-window))))
+  :config (add-to-list 'display-buffer-alist
+		       '("\\*Help\\*"
+			 (display-buffer-reuse-window display-buffer-pop-up-window))))
 
 ;; Enable eletric pair for parens pairing
 (use-package elec-pair
@@ -134,19 +123,16 @@
 ;; avy-mode
 (use-package avy
   :ensure t
-  :config
-  (add-to-list 'avy-styles-alist
-	       '(avy-goto-word-0 . pre))
-  :custom
-  (avy-all-windows nil)
+  :config (add-to-list 'avy-styles-alist
+		       '(avy-goto-word-0 . pre))
+  :custom (avy-all-windows nil)
   :bind (("M-g e" . avy-goto-word-0)
 	 ("M-g w" . avy-goto-word-1)
 	 ("M-g f" . avy-goto-line)))
 
 ;; Display line numbers when writing code
 (use-package display-line-numbers
-  :custom
-  (display-line-numbers-type t)
+  :custom (display-line-numbers-type t)
   :hook prog-mode)
 
 ;; Enable magit and disable built in version control helper
@@ -161,10 +147,9 @@
 ;; Racket mode
 (use-package racket-mode
   :ensure t
-  :config
-  (add-to-list 'display-buffer-alist
-	       '("\\*Racket REPL </>\\*" display-buffer-below-selected
-		 (window-height . 0.25))))
+  :config (add-to-list 'display-buffer-alist
+		       '("\\*Racket REPL </>\\*" display-buffer-below-selected
+			 (window-height . 0.25))))
 
 ;; Enable nix-mode
 (use-package nix-mode
@@ -174,20 +159,18 @@
 ;; display eshell on the bottom
 (use-package eshell
   :bind ("C-c z" . eshell)
-  :config
-  (add-to-list 'display-buffer-alist
-	       '("\\*e?shell\\*" display-buffer-in-side-window
-		 (side . bottom)
-		 (slot . 0)
-		 (window-height . 0.25))))
+  :config (add-to-list 'display-buffer-alist
+		       '("\\*e?shell\\*" display-buffer-in-side-window
+			 (side . bottom)
+			 (slot . 0)
+			 (window-height . 0.25))))
 
 (use-package info
-  :config
-  (add-to-list 'display-buffer-alist
-	       '("\\*info\\*" (display-buffer-in-side-window)
-		 (side . left)
-		 (slot . 0)
-		 (window-width . 92))))
+  :config (add-to-list 'display-buffer-alist
+		       '("\\*info\\*" (display-buffer-in-side-window)
+			 (side . left)
+			 (slot . 0)
+			 (window-width . 92))))
 
 ;; Autorevert
 (use-package autorevert
@@ -197,15 +180,9 @@
 (use-package recentf
   :ensure t
   :bind ("C-c C-r" . recentf-open-files)
-  :custom
-  (recentf-max-saved-itmes 25)
+  :custom (recentf-max-saved-itmes 25)
   (recentf-max-menu-times 25)
   :config (recentf-mode 1))
-
-;; Dired thumbnails
-;; (use-package image-dired
-;;   :bind (:map dired-mode-map ; This doesnt work but i dont wanna bind globally
-;; 	 ("C-c C-t" . image-dired-show-all-from-dir))
 
 (use-package dired
   :bind ("C-c C-d" . dired))
@@ -223,8 +200,7 @@
 (use-package which-key
   :ensure t
   :defer nil ; i have to defer or the package doesnt work
-  :config
-  (which-key-mode)
+  :config (which-key-mode)
   (which-key-setup-side-window-bottom))
 
 (use-package mpc
@@ -233,3 +209,11 @@
 	 ("C-<return>" . mpc-play-at-point)
 	 :map mpc-songs-mode-map
 	 ("C-<return>" . mpc-play-at-point)))
+
+;;; * Custom modules to load
+
+;; Custom modules dir
+(add-to-list 'load-path (file-name-concat user-emacs-directory "custom"))
+
+;; Custom mode-line (be sure to load this after loading the theme)
+(require 'custom-mode-line)
