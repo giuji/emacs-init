@@ -76,7 +76,7 @@
 (transient-mark-mode t)
 
 ;; Enable auto-fill
-(setq fill-column 72)
+(setq-default fill-column 72)
 (add-hook 'text-mode-hook 'auto-fill-mode)
 
 ;; Font
