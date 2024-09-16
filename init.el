@@ -129,8 +129,9 @@
 (use-package avy
   :ensure t
   :config (add-to-list 'avy-styles-alist
-		       '(avy-goto-word-0 . pre))
+		      '(avy-goto-word-1 . at-full))
   :custom (avy-all-windows nil)
+  (avy-style 'pre)
   :bind (("M-g e" . avy-goto-word-0)
 	 ("M-g w" . avy-goto-word-1)
 	 ("M-g f" . avy-goto-line)))
