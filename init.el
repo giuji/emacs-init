@@ -93,6 +93,15 @@
 (use-package sicp
   :ensure t)
 
+;; Enable completion
+(use-package icomplete
+  :defer nil
+  :custom (icomplete-scroll t)
+  ;; disable completion buffer (redundant with icomplete enabled)
+  (completion-auto-help nil)
+  :config
+  (icomplete-vertical-mode 1))
+
 ;; Theme
 (use-package nord-theme
   :ensure t
