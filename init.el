@@ -1,10 +1,10 @@
-;; -*- eval: (outline-minor-mode); outline-regexp: ";;; \\*+"; -*-
+;; -*- eval: (outline-minor-mode); outline-regexp: ";;; \\*+"; eval: (outline-hide-body); -*-
 ;; Emacs init file 18/07/2024 00:04 - Rome
 ;; outline-minor-mode seems NOT to respect heading levels under
 ;; emacs-lisp-mode (all headings are treated as the same level), this
 ;; makes it lowkey useless stupid fucking emacs i hate you
 
-;;; * Set non-package-specific Pakcage
+;;; * Set non-package-specific stuff
 
 ;;; Package manager config
 
@@ -74,7 +74,7 @@
 (setq history-length 16)
 (savehist-mode 1)
 
-;;Window management
+;; Window management
 (setq switch-to-buffer-obey-display-action t)
 
 ;; Show active region
