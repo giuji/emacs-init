@@ -87,6 +87,14 @@
 ;; Font
 (set-face-attribute 'default nil :font "Cascadia Code-10")
 
+;;; * Custom modules to load
+
+;; Custom modules dir
+(add-to-list 'load-path (file-name-concat user-emacs-directory "custom"))
+
+;; Custom mode-line (be sure to load this after loading the theme)
+(require 'custom-mode-line)
+
 ;;; * Packages Config
 
 ;; Structure and interpretation of computer programs
@@ -226,10 +234,3 @@
 	 :map mpc-songs-mode-map
 	 ("C-<return>" . mpc-play-at-point)))
 
-;;; * Custom modules to load
-
-;; Custom modules dir
-(add-to-list 'load-path (file-name-concat user-emacs-directory "custom"))
-
-;; Custom mode-line (be sure to load this after loading the theme)
-(require 'custom-mode-line)
