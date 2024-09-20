@@ -179,7 +179,7 @@
   (avy-style 'pre)
   :bind (("M-g e" . avy-goto-word-0)
 	 ("M-g w" . avy-goto-word-1)
-	 ("M-g f" . avy-goto-line)))
+	 ("M-g l" . avy-goto-line)))
 
 ;; Display line numbers when writing code
 (use-package display-line-numbers
