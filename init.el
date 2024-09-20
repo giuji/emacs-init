@@ -192,8 +192,6 @@
   :custom (magit-define-global-key-bindings 'recommended)
   ;; disable builtin vc package
   (vc-handled-backends nil))
-(use-package vc
-  :disabled)
 
 ;; Racket mode
 (use-package racket-mode
