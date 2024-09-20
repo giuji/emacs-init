@@ -95,6 +95,9 @@
 ;; Custom mode-line (be sure to load this after loading the theme)
 (require 'custom-mode-line)
 
+;; Custom functions and utils
+(require 'custom-functions)
+
 ;;; * Packages Config
 
 ;; Structure and interpretation of computer programs
