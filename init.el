@@ -113,12 +113,15 @@
 	 ("C-<return>" . icomplete-force-complete-and-exit)))
 (icomplete-vertical-mode 1)
 
+;; Config eldoc 
 (use-package eldoc
   :custom (eldoc-documentation-strategy 'eldoc-documentation-compose-eagerly)
+  ;; Need to find a way to hide echo area messages when eldoc buffer exists
   :config (add-to-list 'display-buffer-alist
-		       '("^\\*eldoc for" display-buffer-at-bottom
+		       '("\\*eldoc\\*" display-buffer-below-selected
 			 (window-height . 10))))
 
+;; Company for at point tooltip completition
 (use-package company
   :ensure t
   :custom (company-tooltip-flip-when-above t)
