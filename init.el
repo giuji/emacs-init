@@ -110,6 +110,17 @@
 	 ("C-<return>" . icomplete-force-complete-and-exit)))
 (icomplete-vertical-mode 1)
 
+(use-package eldoc
+  :custom (eldoc-documentation-strategy 'eldoc-documentation-compose-eagerly)
+  :config (add-to-list 'display-buffer-alist
+		       '("^\\*eldoc for" display-buffer-at-bottom
+			 (window-height . 10))))
+
+(use-package company
+  :ensure t
+  :custom (company-tooltip-flip-when-above t)
+  (company-format-margin-function 'company-text-icons-margin)
+  (company-text-icons-add-background t))
 
 ;; Theme
 ;; (use-package nord-theme
@@ -199,6 +210,12 @@
   :config (add-to-list 'display-buffer-alist
 		       '("\\*Racket REPL </>\\*" display-buffer-below-selected
 			 (window-height . 0.25))))
+
+;; CC mode
+(use-package cc-mode
+  ;; set C style to match k&r 2nd edition
+  :config (setcdr (assoc 'other c-default-style) "k&r")
+  :custom (c-basic-offset 4))
 
 ;; Enable nix-mode
 (use-package nix-mode
