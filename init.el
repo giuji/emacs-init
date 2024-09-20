@@ -1,4 +1,4 @@
-;; -*- eval: (outline-minor-mode); outline-regexp: ";;; \\*+"; eval: (outline-hide-body); -*-
+;; -*- eval: (outline-minor-mode); outline-regexp: ";;; \\*+ "; -*-
 ;; Emacs init file 18/07/2024 00:04 - Rome
 ;; outline-minor-mode seems NOT to respect heading levels under
 ;; emacs-lisp-mode (all headings are treated as the same level), this
