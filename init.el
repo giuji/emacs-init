@@ -112,10 +112,37 @@
 
 
 ;; Theme
-(use-package nord-theme
+;; (use-package nord-theme
+;;   :ensure t
+;;   :defer nil
+;;   :config (load-theme 'nord t))
+(use-package ef-themes
   :ensure t
-  :defer nil
-  :config (load-theme 'nord t))
+  :config (mapc #'disable-theme custom-enabled-themes)
+  :hook (ef-themes-post-load . (lambda ()
+				 (ef-themes-with-colors
+				   (set-face-attribute 'font-lock-comment-face nil
+						       :foreground fg-dim))))
+  ;; Check custom/custom-mode-line.el these custom faces are defined there
+  (ef-themes-post-load . (lambda ()
+			   (let ((suc (face-attribute 'success :foreground))
+				 (err (face-attribute 'error :foreground))
+				 (war (face-attribute 'warning :foreground))
+				 (mod-l (face-attribute 'mode-line :foreground))
+				 (fg (face-attribute 'default :background)))
+			     (set-face-attribute 'mode-line--inverted-success nil
+						 :background suc
+						 :foreground fg)
+			     (set-face-attribute 'mode-line--inverted-error nil
+						 :background err
+						 :foreground fg)
+			     (set-face-attribute 'mode-line--inverted-warning nil
+						 :background war
+						 :foreground fg)
+			     (set-face-attribute 'mode-line--inverted-name nil
+						 :background mod-l
+						 :foreground fg)))))
+(ef-themes-select 'ef-dream)
 
 ;; Show matching parens
 (use-package paren
