@@ -136,6 +136,8 @@
 (use-package ef-themes
   :ensure t
   :config (mapc #'disable-theme custom-enabled-themes)
+  :custom (ef-themes-to-toggle '(ef-dream ef-spring))
+  :bind ("C-c e" . ef-themes-toggle)
   :hook (ef-themes-post-load . (lambda ()
 				 (ef-themes-with-colors
 				   (set-face-attribute 'font-lock-comment-face nil
