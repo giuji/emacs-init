@@ -52,8 +52,8 @@
 (setq inhibit-startup-message t)
 
 ;; Change default scratch buffer message
-(setq initial-scratch-message (concat ";; Welcome to Emacs!! today is the "
-				      (format-time-string "%dth of %B, %Y. " (current-time))
+(setq initial-scratch-message (concat ";; Welcome to Emacs!! Today is "
+				      (format-time-string "%d/%B (EU), %Y. " (current-time))
 				      "Have fun!!\n"))
 
 ;; Disable implicit frame resizing
