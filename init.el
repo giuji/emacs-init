@@ -193,11 +193,11 @@
 (use-package avy
   :ensure t
   :config (add-to-list 'avy-styles-alist
-		      '(avy-goto-word-1 . at-full))
-  :custom (avy-all-windows nil)
+		       '(avy-goto-word-1 . at-full)
+		       '(avy-goto-char-timer . at))
+  :custom (avy-all-windows t)
   (avy-style 'pre)
-  :bind (("M-g e" . avy-goto-word-0)
-	 ("M-g w" . avy-goto-word-1)
+  :bind (("M-g a" . avy-goto-char-timer)
 	 ("M-g l" . avy-goto-line)))
 
 ;; Display line numbers when writing code
