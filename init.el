@@ -219,6 +219,13 @@
 		       '("\\*Racket REPL </>\\*" display-buffer-below-selected
 			 (window-height . 0.25))))
 
+;; Haskell mode
+(use-package haskell-mode
+  :ensure t
+  :config (add-to-list 'display-buffer-alist
+		       '("\\*haskell\\*" display-buffer-below-selected
+			 (window-height . 0.25))))
+
 ;; CC mode
 (use-package cc-mode
   ;; set C style to match k&r 2nd edition
