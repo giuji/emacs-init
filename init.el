@@ -291,3 +291,8 @@
 	 :map mpc-songs-mode-map
 	 ("C-<return>" . mpc-play-at-point)))
 
+;; org mode stuff
+(use-package org
+  :custom (org-latex-compiler "lualatex")
+  (org-preview-latex-default-process 'dvisvgm)
+  :config (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.3)))
