@@ -265,10 +265,17 @@
 (use-package ibuffer
   :bind ("C-x C-b" . ibuffer))
 
-(use-package doc-view
-  :custom (doc-view-resolution 200)
-  :bind (:map doc-view-mode-map
-	 ("c c" . doc-view-clear-cache)))
+;; Windmove setup
+(use-package windmove
+  :bind ("M-o p" . windmove-up)
+  ("M-o n" . windmove-down)
+  ("M-o f" . windmove-right)
+  ("M-o b" . windmove-left))
+
+;; (use-package doc-view
+;;   :custom (doc-view-resolution 200)
+;;   :bind (:map doc-view-mode-map
+;; 	 ("c c" . doc-view-clear-cache)))
 
 ;; whick-key package (remember this is turning built-in from next emacs version...)
 (use-package which-key
