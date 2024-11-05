@@ -307,4 +307,5 @@
 (use-package org
   :custom (org-latex-compiler "lualatex")
   (org-preview-latex-default-process 'dvisvgm)
-  :config (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.3)))
+  :config (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.3))
+  (add-to-list 'org-structure-template-alist '("H" . "src haskell")))
