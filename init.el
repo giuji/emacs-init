@@ -232,6 +232,11 @@
   :config (setcdr (assoc 'other c-default-style) "k&r")
   :custom (c-basic-offset 4))
 
+;; Enable direnv
+(use-package envrc
+  :ensure t
+  :hook (after-init . envrc-global-mode))
+
 ;; Enable nix-mode
 (use-package nix-mode
   :ensure t
