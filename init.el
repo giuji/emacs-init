@@ -136,7 +136,7 @@
 (use-package ef-themes
   :ensure t
   :config (mapc #'disable-theme custom-enabled-themes)
-  :custom (ef-themes-to-toggle '(ef-dream ef-spring))
+  :custom (ef-themes-to-toggle '(ef-melissa-dark ef-melissa-light))
   :bind ("C-c e" . ef-themes-toggle)
   :hook (ef-themes-post-load . (lambda ()
 				 (ef-themes-with-colors
@@ -161,7 +161,7 @@
 			     (set-face-attribute 'mode-line--inverted-name nil
 						 :background mod-l
 						 :foreground fg)))))
-(ef-themes-select 'ef-dream)
+(ef-themes-select 'ef-melissa-dark)
 
 ;; Show matching parens
 (use-package paren
